@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BlueSheep.Interface.Il8nBs;
 using BlueSheep.Interface.Text;
 using BlueSheep.Engine;
 using BlueSheep.Engine.Types;
@@ -119,10 +120,7 @@ namespace BlueSheep.Interface
         public AccountUC(string username, string password, bool socket)
         {
             InitializeComponent();
-            MonsterTextBox.KeyUp += (s, e) =>
-            {
-                IntelliSense.AutoCompleteTextBox(MonsterTextBox, lstPopup, IntelliSense.MonstersList, e);
-            };
+            MonsterTextBox.KeyUp += (s, e) => IntelliSense.AutoCompleteTextBox(MonsterTextBox, lstPopup, IntelliSense.MonstersList, e);
             AccountName = username;
             AccountPassword = password;
             PetsModifiedList = new List<Pet>();
@@ -131,17 +129,7 @@ namespace BlueSheep.Interface
             switch (MainForm.ActualMainForm.Lang)
             {
                 case "FR":
-                    listViewPets.Columns.Add("Nom", 150, HorizontalAlignment.Left);
-            listViewPets.Columns.Add("UID", 0, HorizontalAlignment.Left);
-            listViewPets.Columns.Add("Nourriture (Quantité)", -2, HorizontalAlignment.Left);
-            listViewPets.Columns.Add("Prochain repas", -2, HorizontalAlignment.Left);
-            listViewPets.Columns.Add("Caractéristiques", -2, HorizontalAlignment.Left);
-            LVItems.Columns.Add("GID", 0, HorizontalAlignment.Center);
-            LVItems.Columns.Add("UID", 0, HorizontalAlignment.Center);
-            LVItems.Columns.Add("Nom", -2, HorizontalAlignment.Center);
-            LVItems.Columns.Add("Quantité", -2, HorizontalAlignment.Center);
-            LVItems.Columns.Add("Type", -2, HorizontalAlignment.Center);
-            LVItems.Columns.Add("Prix moyen", -2, HorizontalAlignment.Center);
+                    InitText(Il8NBsLang.Fr);
                     break;
                 case "EN":
                     listViewPets.Columns.Add("Name", 150, HorizontalAlignment.Left);
@@ -293,6 +281,42 @@ namespace BlueSheep.Interface
             //Config Manager
             this.ConfigManager = new ConfigManager(this);
             
+        }
+
+        private void InitText(Il8NBsLang lang)
+        {
+            Il8NBs.Instance.Lang = lang;
+            listViewPets.Columns.Add(Il8NBs.Instance.Get(Il8NBsEnum.AccountUcName), 150, HorizontalAlignment.Left);
+            listViewPets.Columns.Add(Il8NBs.Instance.Get(Il8NBsEnum.AccountUcUid), 0, HorizontalAlignment.Left);
+            listViewPets.Columns.Add(Il8NBs.Instance.Get(Il8NBsEnum.AccountUcFood), -2, HorizontalAlignment.Left);
+            listViewPets.Columns.Add(Il8NBs.Instance.Get(Il8NBsEnum.AccountUcNextMeal), -2, HorizontalAlignment.Left);
+            listViewPets.Columns.Add(Il8NBs.Instance.Get(Il8NBsEnum.AccountUcStats), -2, HorizontalAlignment.Left);
+            LVItems.Columns.Add(Il8NBs.Instance.Get(Il8NBsEnum.AccountUcGid), 0, HorizontalAlignment.Center);
+            LVItems.Columns.Add(Il8NBs.Instance.Get(Il8NBsEnum.AccountUcUid), 0, HorizontalAlignment.Center);
+            LVItems.Columns.Add(Il8NBs.Instance.Get(Il8NBsEnum.AccountUcName), -2, HorizontalAlignment.Center);
+            LVItems.Columns.Add(Il8NBs.Instance.Get(Il8NBsEnum.AccountUcQuantity), -2, HorizontalAlignment.Center);
+            LVItems.Columns.Add(Il8NBs.Instance.Get(Il8NBsEnum.AccountUcType), -2, HorizontalAlignment.Center);
+            LVItems.Columns.Add(Il8NBs.Instance.Get(Il8NBsEnum.AccountUcAveragePrice), -2, HorizontalAlignment.Center);
+            VTabAccount.TabPages[1].Text = Il8NBs.Instance.Get(Il8NBsEnum.AccountUcFight);
+            VTabAccount.TabPages[2].Text = Il8NBs.Instance.Get(Il8NBsEnum.AccountUcJobs);
+            VTabAccount.TabPages[3].Text = Il8NBs.Instance.Get(Il8NBsEnum.AccountUcPets);
+            VTabAccount.TabPages[4].Text = Il8NBs.Instance.Get(Il8NBsEnum.AccountUcInventory);
+            VTabAccount.TabPages[5].Text = Il8NBs.Instance.Get(Il8NBsEnum.AccountUcDivers);
+            sadikTabControl2.TabPages[0].Text = Il8NBs.Instance.Get(Il8NBsEnum.AccountUcInventory);
+            FloodPage.TabPages[0].Text = Il8NBs.Instance.Get(Il8NBsEnum.AccountUcHouses);
+            sadikLabel2.Text = Il8NBs.Instance.Get(Il8NBsEnum.AccountUcLifePercent);
+            GroupBox2.Text = Il8NBs.Instance.Get(Il8NBsEnum.AccountUcAi);
+            ChoiceIABt.Text = Il8NBs.Instance.Get(Il8NBsEnum.AccountUcChooseAi);
+            CreateIABt.Text = Il8NBs.Instance.Get(Il8NBsEnum.AccountUcCreateAi);
+            NomIA.Text = Il8NBs.Instance.Get(Il8NBsEnum.AccountUcAiName);
+            sadikLabel5.Text = Il8NBs.Instance.Get(Il8NBsEnum.AccountUcMonstersNumber);
+            sadikLabel6.Text = Il8NBs.Instance.Get(Il8NBsEnum.AccountUcMonsterLevel);
+            checkBoxBegin.Text = Il8NBs.Instance.Get(Il8NBsEnum.AccountUcStartFeeding);
+            toolStripButton1.Text = Il8NBs.Instance.Get(Il8NBsEnum.AccountUcConnectDisconnect);
+            PathDownBt.Text = Il8NBs.Instance.Get(Il8NBsEnum.AccountUcPath);
+            LaunchPathBt.Text = Il8NBs.Instance.Get(Il8NBsEnum.AccountUcLaunchPath);
+            LoadPathBt.Text = Il8NBs.Instance.Get(Il8NBsEnum.AccountUcLoadPath);
+            StopPathBt.Text = Il8NBs.Instance.Get(Il8NBsEnum.AccountUcStopPath);
         }
 
         public AccountUC()
@@ -1259,28 +1283,6 @@ namespace BlueSheep.Interface
         {
 
         }
-
-        
-
-        
-
-
-
-
-
-
-
-        
-
-        
-
- 
-
-
-
-
-
-        
     }
 }
 

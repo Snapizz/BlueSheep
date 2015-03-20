@@ -30,12 +30,12 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AccountUC));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend6 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.PosLabel = new System.Windows.Forms.ToolStripLabel();
             this.ToolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
@@ -1065,33 +1065,33 @@
             // 
             // WinLoseFightPie
             // 
-            chartArea1.Name = "ChartArea1";
-            this.WinLoseFightPie.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.WinLoseFightPie.Legends.Add(legend1);
+            chartArea5.Name = "ChartArea1";
+            this.WinLoseFightPie.ChartAreas.Add(chartArea5);
+            legend5.Name = "Legend1";
+            this.WinLoseFightPie.Legends.Add(legend5);
             this.WinLoseFightPie.Location = new System.Drawing.Point(53, 149);
             this.WinLoseFightPie.Name = "WinLoseFightPie";
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.WinLoseFightPie.Series.Add(series1);
+            series5.ChartArea = "ChartArea1";
+            series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series5.Legend = "Legend1";
+            series5.Name = "Series1";
+            this.WinLoseFightPie.Series.Add(series5);
             this.WinLoseFightPie.Size = new System.Drawing.Size(250, 149);
             this.WinLoseFightPie.TabIndex = 1;
             this.WinLoseFightPie.Text = "WinLoseFightPie";
             // 
             // XpBarsChart
             // 
-            chartArea2.Name = "ChartArea1";
-            this.XpBarsChart.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            this.XpBarsChart.Legends.Add(legend2);
+            chartArea6.Name = "ChartArea1";
+            this.XpBarsChart.ChartAreas.Add(chartArea6);
+            legend6.Name = "Legend1";
+            this.XpBarsChart.Legends.Add(legend6);
             this.XpBarsChart.Location = new System.Drawing.Point(40, 15);
             this.XpBarsChart.Name = "XpBarsChart";
-            series2.ChartArea = "ChartArea1";
-            series2.Legend = "Legend1";
-            series2.Name = "Series1";
-            this.XpBarsChart.Series.Add(series2);
+            series6.ChartArea = "ChartArea1";
+            series6.Legend = "Legend1";
+            series6.Name = "Series1";
+            this.XpBarsChart.Series.Add(series6);
             this.XpBarsChart.Size = new System.Drawing.Size(374, 134);
             this.XpBarsChart.TabIndex = 0;
             this.XpBarsChart.Text = "chart1";
@@ -1709,6 +1709,7 @@
             this.Controls.Add(this.VTabAccount);
             this.Name = "AccountUC";
             this.Size = new System.Drawing.Size(609, 421);
+            this.Disposed += new System.EventHandler(this.Form_Closed);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.VTabAccount.ResumeLayout(false);
@@ -1769,7 +1770,6 @@
             this.MapPage.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
-            this.Disposed += new System.EventHandler(this.Form_Closed);
 
         }
 

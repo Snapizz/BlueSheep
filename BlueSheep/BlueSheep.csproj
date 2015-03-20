@@ -1412,6 +1412,9 @@
     <Compile Include="Interface\AccountFrm.Designer.cs">
       <DependentUpon>AccountFrm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Interface\Il8nBs\Il8nBs.cs" />
+    <Compile Include="Interface\Il8nBs\Il8nBsEnum.cs" />
+    <Compile Include="Interface\Il8nBs\Il8nBsLang.cs" />
     <Compile Include="Interface\UCs\AccountUC.cs">
       <SubType>UserControl</SubType>
     </Compile>
