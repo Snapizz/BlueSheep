@@ -308,7 +308,7 @@ namespace BlueSheep.Interface
             GroupBox2.Text = Il8NBs.Instance.Get(Il8NBsEnum.AccountUcAi);
             ChoiceIABt.Text = Il8NBs.Instance.Get(Il8NBsEnum.AccountUcChooseAi);
             CreateIABt.Text = Il8NBs.Instance.Get(Il8NBsEnum.AccountUcCreateAi);
-            NomIA.Text = Il8NBs.Instance.Get(Il8NBsEnum.AccountUcAiName);
+            NomIA.Text = Il8NBs.Instance.Get(Il8NBsEnum.AccountUcNoAi);
             sadikLabel5.Text = Il8NBs.Instance.Get(Il8NBsEnum.AccountUcMonstersNumber);
             sadikLabel6.Text = Il8NBs.Instance.Get(Il8NBsEnum.AccountUcMonsterLevel);
             checkBoxBegin.Text = Il8NBs.Instance.Get(Il8NBsEnum.AccountUcStartFeeding);

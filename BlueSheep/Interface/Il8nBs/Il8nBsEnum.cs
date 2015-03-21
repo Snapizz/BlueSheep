@@ -26,7 +26,7 @@ namespace BlueSheep.Interface.Il8nBs
         AccountUcAi,
         AccountUcChooseAi,
         AccountUcCreateAi,
-        AccountUcAiName,
+        AccountUcNoAi,
         AccountUcMonstersNumber,
         AccountUcMonsterLevel,
         AccountUcStartFeeding,
