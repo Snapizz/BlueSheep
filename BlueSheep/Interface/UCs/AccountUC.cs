@@ -111,7 +111,7 @@ namespace BlueSheep.Interface
         private delegate void DelegListView(ListViewItem delta, ListView gamma);
         private delegate void DelegLabel(string text, Label lab);
         private delegate void DelegBool(bool param1);
-        private delegate void DelegGatherPie(Dictionary<string, int> ressources, Dictionary<DateTime,int> xp);
+        private delegate void DelegGatherPie(Dictionary<string, int> ressources, Dictionary<DateTime, int> xp);
         private delegate bool DelegVerifGroup(List<string> monsters);
         #endregion
 
@@ -126,111 +126,23 @@ namespace BlueSheep.Interface
             PetsModifiedList = new List<Pet>();
             PrivateExitBox.Hide();
             this.IsMITM = !socket;
+
             switch (MainForm.ActualMainForm.Lang)
             {
                 case "FR":
-                    InitText(Il8NBsLang.Fr);
+                    Il8NBs.Instance.Lang = Il8NBsLang.Fr;
                     break;
                 case "EN":
-                    listViewPets.Columns.Add("Name", 150, HorizontalAlignment.Left);
-            listViewPets.Columns.Add("UID", 0, HorizontalAlignment.Left);
-            listViewPets.Columns.Add("Food (Quantity)", -2, HorizontalAlignment.Left);
-            listViewPets.Columns.Add("Next meal", -2, HorizontalAlignment.Left);
-            listViewPets.Columns.Add("Stats", -2, HorizontalAlignment.Left);
-            LVItems.Columns.Add("GID", 0, HorizontalAlignment.Center);
-            LVItems.Columns.Add("UID", 0, HorizontalAlignment.Center);
-            LVItems.Columns.Add("Name", -2, HorizontalAlignment.Center);
-            LVItems.Columns.Add("Quantity", -2, HorizontalAlignment.Center);
-            LVItems.Columns.Add("Type", -2, HorizontalAlignment.Center);
-            LVItems.Columns.Add("Average Price", -2, HorizontalAlignment.Center);
-            VTabAccount.TabPages[1].Text = "Fight";
-            VTabAccount.TabPages[2].Text = "Pets";
-            VTabAccount.TabPages[3].Text = "Inventory";
-            VTabAccount.TabPages[4].Text = "Misc";
-            VTabAccount.TabPages[5].Text = "Settings";
-            sadikTabControl2.TabPages[0].Text = "Inventory";
-            FloodPage.TabPages[0].Text = "Houses";
-            sadikLabel2.Text = "% of life";
-            GroupBox2.Text = "AI";
-            ChoiceIABt.Text = "Choose an AI";
-            CreateIABt.Text = "Create an AI";
-            NomIA.Text = "No AI";
-            sadikLabel5.Text = "Numbers of monsters";
-            sadikLabel6.Text = "Levels of monsters";
-            checkBoxBegin.Text = "Start feeding";
-            toolStripButton1.Text = "Connect/Disconnect";
-            PathDownBt.Text = "Path";
-            LaunchPathBt.Text = "Launch path";
-            LoadPathBt.Text = "Load path";
-            StopPathBt.Text = "Stop path";
-            break;
+                    Il8NBs.Instance.Lang = Il8NBsLang.En;
+                    break;
                 case "ES":
-            listViewPets.Columns.Add("Nombre", 150, HorizontalAlignment.Left);
-            listViewPets.Columns.Add("UID", 0, HorizontalAlignment.Left);
-            listViewPets.Columns.Add("Alimento (cantidad)", -2, HorizontalAlignment.Left);
-            listViewPets.Columns.Add("Comida próxima", -2, HorizontalAlignment.Left);
-            listViewPets.Columns.Add("Características", -2, HorizontalAlignment.Left);
-            LVItems.Columns.Add("GID", 0, HorizontalAlignment.Center);
-            LVItems.Columns.Add("UID", 0, HorizontalAlignment.Center);
-            LVItems.Columns.Add("Nombre", -2, HorizontalAlignment.Center);
-            LVItems.Columns.Add("Cantidad", -2, HorizontalAlignment.Center);
-            LVItems.Columns.Add("Tipo", -2, HorizontalAlignment.Center);
-            LVItems.Columns.Add("Precio medio", -2, HorizontalAlignment.Center);
-            VTabAccount.TabPages[1].Text = "Combate";
-            VTabAccount.TabPages[2].Text = "Mascotas";
-            VTabAccount.TabPages[3].Text = "Inventario";
-            VTabAccount.TabPages[4].Text = "Miscelánea";
-            VTabAccount.TabPages[5].Text = "Parámetros";
-            sadikTabControl2.TabPages[0].Text = "Inventario";
-            FloodPage.TabPages[0].Text = "Casas";
-            sadikLabel2.Text = "% de vida";
-            GroupBox2.Text = "IA";
-            ChoiceIABt.Text = "Choose an IA";
-            CreateIABt.Text = "Create an IA";
-            NomIA.Text = "No IA";
-            sadikLabel5.Text = "Número de monstruos";
-            sadikLabel6.Text = "Niveles de los monstruos";
-            checkBoxBegin.Text = "Empezar la ganadería";
-            toolStripButton1.Text = "Conectar/Desconectar";
-            PathDownBt.Text = "Trayecto";
-            LaunchPathBt.Text = "Lanzar el trayecto";
-            LoadPathBt.Text = "Cargar un trayecto";
-            StopPathBt.Text = "Parar el trayecto";
-            break;
+                    Il8NBs.Instance.Lang = Il8NBsLang.Es;
+                    break;
                 case "PT":
-                    listViewPets.Columns.Add("Nome", 150, HorizontalAlignment.Left);
-            listViewPets.Columns.Add("UID", 0, HorizontalAlignment.Left);
-            listViewPets.Columns.Add("Comida (quantidade)", -2, HorizontalAlignment.Left);
-            listViewPets.Columns.Add("Próxima refeição", -2, HorizontalAlignment.Left);
-            listViewPets.Columns.Add("Características", -2, HorizontalAlignment.Left);
-            LVItems.Columns.Add("GID", 0, HorizontalAlignment.Center);
-            LVItems.Columns.Add("UID", 0, HorizontalAlignment.Center);
-            LVItems.Columns.Add("Nome", -2, HorizontalAlignment.Center);
-            LVItems.Columns.Add("Quantidade", -2, HorizontalAlignment.Center);
-            LVItems.Columns.Add("Tipo", -2, HorizontalAlignment.Center);
-            LVItems.Columns.Add("Preço médio", -2, HorizontalAlignment.Center);
-            VTabAccount.TabPages[1].Text = "Luta";
-            VTabAccount.TabPages[2].Text = "Animais";
-            VTabAccount.TabPages[3].Text = "Inventário";
-            VTabAccount.TabPages[4].Text = "Diverso";
-            VTabAccount.TabPages[5].Text = "Parâmetros";
-            sadikTabControl2.TabPages[0].Text = "Inventário";
-            FloodPage.TabPages[0].Text = "Casas";
-            sadikLabel2.Text = "% de vida";
-            GroupBox2.Text = "IA";
-            ChoiceIABt.Text = "Escolha um IA";
-            CreateIABt.Text = "Crie um IA";
-            NomIA.Text = "No AI";
-            sadikLabel5.Text = "Número de monstros";
-            sadikLabel6.Text = "Nível de monstros";
-            checkBoxBegin.Text = "Comece a procriação";
-            toolStripButton1.Text = "Conecte / desconecte";
-            PathDownBt.Text = "Trajecto";
-            LaunchPathBt.Text = "Lance a trajecto";
-            LoadPathBt.Text = "Carregue (Custo) um trajecto";
-            StopPathBt.Text = "Parada trajecto";
-            break;
+                    Il8NBs.Instance.Lang = Il8NBsLang.Pt;
+                    break;
             }
+            InitText();
             ComparateurBox.SelectedIndex = 0;
             MonstersRestrictionsView.Columns.Add("Nom", -2);
             MonstersRestrictionsView.Columns.Add("Comparateur", -2);
@@ -280,12 +192,11 @@ namespace BlueSheep.Interface
 
             //Config Manager
             this.ConfigManager = new ConfigManager(this);
-            
+
         }
 
-        private void InitText(Il8NBsLang lang)
+        private void InitText()
         {
-            Il8NBs.Instance.Lang = lang;
             listViewPets.Columns.Add(Il8NBs.Instance.Get(Il8NBsEnum.AccountUcName), 150, HorizontalAlignment.Left);
             listViewPets.Columns.Add(Il8NBs.Instance.Get(Il8NBsEnum.AccountUcUid), 0, HorizontalAlignment.Left);
             listViewPets.Columns.Add(Il8NBs.Instance.Get(Il8NBsEnum.AccountUcFood), -2, HorizontalAlignment.Left);
@@ -324,7 +235,7 @@ namespace BlueSheep.Interface
             InitializeComponent();
         }
 
-#endregion
+        #endregion
 
         #region Methodes d'interfaces
 
@@ -336,7 +247,7 @@ namespace BlueSheep.Interface
             {
                 this.SocketManager.DisconnectServer();
             }
-            
+
         }
 
         public void InitMITM()
@@ -345,7 +256,7 @@ namespace BlueSheep.Interface
             this.SocketManager.ListenDofus();
         }
 
-        public void Log(TextInformation text,int levelVerbose)
+        public void Log(TextInformation text, int levelVerbose)
         {
             if (this.IsDisposed == true)
                 return;
@@ -466,7 +377,7 @@ namespace BlueSheep.Interface
             }
             else
             {
-                Log(new BotTextInformation("L'élevage va être stoppé"),3);
+                Log(new BotTextInformation("L'élevage va être stoppé"), 3);
                 Running = null;
             }
         }
@@ -517,7 +428,7 @@ namespace BlueSheep.Interface
         {
             //this.BeginInvoke(new MethodInvoker(LVItems.Items.Add),li);
             if (list.InvokeRequired == true)
-                Invoke(new DelegListView(AddItem), li,list);
+                Invoke(new DelegListView(AddItem), li, list);
             else
                 list.Items.Add(li);
         }
@@ -533,11 +444,11 @@ namespace BlueSheep.Interface
             if (Path != null)
             {
                 Path.Stop = false;
-                Log(new BotTextInformation("Lancement du trajet"),1);
+                Log(new BotTextInformation("Lancement du trajet"), 1);
                 Path.ParsePath();
             }
             else
-                Log(new ErrorTextInformation("Aucun trajet chargé"),3);
+                Log(new ErrorTextInformation("Aucun trajet chargé"), 3);
         }
 
         private void StopPathBt_Click(object sender, EventArgs e)
@@ -546,7 +457,7 @@ namespace BlueSheep.Interface
             {
                 Path = null;
                 PathDownBt.Text = "Trajet";
-                this.Log(new BotTextInformation("Trajet déchargé"),1);
+                this.Log(new BotTextInformation("Trajet déchargé"), 1);
             }
         }
 
@@ -565,7 +476,7 @@ namespace BlueSheep.Interface
         private void StartWaitingBt_Click(object sender, EventArgs e)
         {
             House = new HouseBuy(this);
-            Log(new BotTextInformation("En attente de la mise en vente d'une maison..."),1);
+            Log(new BotTextInformation("En attente de la mise en vente d'une maison..."), 1);
         }
 
         private void ParcourirBt_Click(object sender, EventArgs e)
@@ -579,10 +490,10 @@ namespace BlueSheep.Interface
             if (StartStopFloodingBox.Checked == false)
             {
                 Flood.stop = true;
-                Log(new BotTextInformation("Flood arrêté"),1);
+                Log(new BotTextInformation("Flood arrêté"), 1);
                 return;
             }
-            Log(new BotTextInformation("Flood activé"),1);
+            Log(new BotTextInformation("Flood activé"), 1);
             if (CommerceBox.Checked)
                 Flood.StartFlooding(5, IsRandomingSmileyBox.Checked, IsRandomingNumberBox.Checked, FloodContentRbox.Text, (int)NUDFlood.Value);
             if (RecrutementBox.Checked)
@@ -616,7 +527,7 @@ namespace BlueSheep.Interface
                 Invoke(new DelegLabel(ModLabel), "Pas de prochain repas", labelNextMeal);
 
             Invoke(new DelegLabel(ModLabel), Safe != null ? "Coffre : Oui" : "Coffre : Non", labelSafe);
-            
+
             if (listViewPets.InvokeRequired)
                 this.BeginInvoke(new MethodInvoker(listViewPets.Items.Clear));
             else
@@ -647,9 +558,9 @@ namespace BlueSheep.Interface
 
                     listViewItem.SubItems.Add(pet.Effect);
 
-                   AddItem(listViewItem, listViewPets);
-                   //if (listViewPets.Items.Count != 0)
-                   //    listViewPets.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
+                    AddItem(listViewItem, listViewPets);
+                    //if (listViewPets.Items.Count != 0)
+                    //    listViewPets.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
                 }
             }
         }
@@ -673,7 +584,7 @@ namespace BlueSheep.Interface
                         Log(new ErrorTextInformation(s), 0);
                     else
                         Log(new BotTextInformation(s), 0);
-                }   
+                }
             }
             else if (e.KeyCode == Keys.Up && CLIParser.CommandsHistory.Count > 0)
             {
@@ -700,7 +611,7 @@ namespace BlueSheep.Interface
 
         public void ActualizeMap()
         {
-            this.BeginInvoke(new MethodInvoker(MapView.Items.Clear)); 
+            this.BeginInvoke(new MethodInvoker(MapView.Items.Clear));
             foreach (BlueSheep.Core.Map.Elements.InteractiveElement e in Map.InteractiveElements.Values)
             {
                 BlueSheep.Core.Map.Elements.StatedElement element = null;
@@ -712,10 +623,10 @@ namespace BlueSheep.Interface
                 switch (e.TypeId)
                 {
                     case 16:
-                        type = type.Replace("Inconnu","Zaap");
+                        type = type.Replace("Inconnu", "Zaap");
                         break;
                     case 106:
-                        type = type.Replace("Inconnu","Zaapi");
+                        type = type.Replace("Inconnu", "Zaapi");
                         break;
                     case 105:
                         type = type.Replace("Inconnu", "Poubelle");
@@ -734,7 +645,7 @@ namespace BlueSheep.Interface
                 if (element != null)
                     cellId = Convert.ToString(element.CellId);
 
-                AddItem(new ListViewItem(new string[] {Convert.ToString(e.Id), cellId,type}),MapView);
+                AddItem(new ListViewItem(new string[] { Convert.ToString(e.Id), cellId, type }), MapView);
             }
             //foreach (BlueSheep.Core.Map.Elements.InteractiveElement d in Map.Doors.Values)
             //{
@@ -750,7 +661,7 @@ namespace BlueSheep.Interface
             //}
             foreach (int npcid in Npc.Npcs.Values)
             {
-                AddItem(new ListViewItem(new string[] { Convert.ToString(npcid), "?" , "Pnj" }), MapView);
+                AddItem(new ListViewItem(new string[] { Convert.ToString(npcid), "?", "Pnj" }), MapView);
             }
         }
 
@@ -814,7 +725,7 @@ namespace BlueSheep.Interface
                 this.Invoke(new DelegBool(Enable), param1);
             else
                 this.Enabled = param1;
-        } 
+        }
 
         private void LVItems_ColumnClick(object sender, EventArgs e)
         {
@@ -853,19 +764,19 @@ namespace BlueSheep.Interface
 
         }
 
-        public void ActualizeFightStats(Dictionary<string, int> winLose, Dictionary<DateTime,int> xpwon)
+        public void ActualizeFightStats(Dictionary<string, int> winLose, Dictionary<DateTime, int> xpwon)
         {
             if (WinLoseFightPie.InvokeRequired)
             {
                 Invoke(new DelegGatherPie(ActualizeFightStats), winLose, xpwon);
                 return;
             }
-            #if __MonoCS__
+#if __MonoCS__
 
-            #else
+#else
             if (WinLoseFightPie.Titles.Count < 1)
-            WinLoseFightPie.Titles.Add("Résultats des combats");
-            #endif
+                WinLoseFightPie.Titles.Add("Résultats des combats");
+#endif
             WinLoseFightPie.Series.Clear();
             WinLoseFightPie.ChartAreas[0].BackColor = Color.Transparent;
             Series series1 = new Series
@@ -886,12 +797,12 @@ namespace BlueSheep.Interface
                 i += 1;
             }
             this.XpBarsChart.Series.Clear();
-            #if __MonoCS__
+#if __MonoCS__
 
-            #else
+#else
             if (XpBarsChart.Titles.Count < 1)
-            this.XpBarsChart.Titles.Add("Experience gagnée");
-            #endif
+                this.XpBarsChart.Titles.Add("Experience gagnée");
+#endif
             foreach (KeyValuePair<DateTime, int> p in xpwon)
             {
                 Series series = new Series(p.Key.ToShortDateString());
@@ -961,7 +872,7 @@ namespace BlueSheep.Interface
             {
                 nstatus = BlueSheep.Engine.Constants.Translate.GetTranslation(nstatus, MainForm.ActualMainForm.Lang);
             }
-            Invoke(new DelegLabel(ModLabel),nstatus, StatusLb);
+            Invoke(new DelegLabel(ModLabel), nstatus, StatusLb);
         }
         #endregion
 
@@ -970,11 +881,11 @@ namespace BlueSheep.Interface
         {
             SocketManager.DisconnectFromGUI();
 
-            Log(new ConnectionTextInformation("Reconnexion automatique dans " + minute + " minute(s)."),0);
+            Log(new ConnectionTextInformation("Reconnexion automatique dans " + minute + " minute(s)."), 0);
 
             //if (m_TimerConnectionThread == null)
-                m_TimerConnectionThread = new Timer(TimerConnectionThreadFinished, null, (int)TimeSpan.FromMinutes(minute).TotalMilliseconds,
-                    Timeout.Infinite);
+            m_TimerConnectionThread = new Timer(TimerConnectionThreadFinished, null, (int)TimeSpan.FromMinutes(minute).TotalMilliseconds,
+                Timeout.Infinite);
             //else
             //    m_TimerConnectionThread.Change((int)TimeSpan.FromMinutes(minute).TotalMilliseconds, Timeout.Infinite);
 
@@ -1000,18 +911,18 @@ namespace BlueSheep.Interface
 
             //foreach (Bot bot in m_Bots)
             //{
-                if (m_NextMeal.Year == 1)
-                {
-                    m_NextMeal = new DateTime(NextMeal.Year, NextMeal.Month, NextMeal.Day, NextMeal.Hour,
-                        NextMeal.Minute, 0);
-                    //continue;
-                }
+            if (m_NextMeal.Year == 1)
+            {
+                m_NextMeal = new DateTime(NextMeal.Year, NextMeal.Month, NextMeal.Day, NextMeal.Hour,
+                    NextMeal.Minute, 0);
+                //continue;
+            }
 
-                else if (NextMeal <= m_NextMeal)
-                {
-                    m_NextMeal = new DateTime(NextMeal.Year, NextMeal.Month, NextMeal.Day,NextMeal.Hour,
-                        NextMeal.Minute, 0);
-                }
+            else if (NextMeal <= m_NextMeal)
+            {
+                m_NextMeal = new DateTime(NextMeal.Year, NextMeal.Month, NextMeal.Day, NextMeal.Hour,
+                    NextMeal.Minute, 0);
+            }
             //}
 
             if (m_NextMeal.Year != 1)
@@ -1020,8 +931,8 @@ namespace BlueSheep.Interface
 
                 DateTime difference = new DateTime((m_NextMeal - DateTime.Now).Ticks);
 
-               Log(new GeneralTextInformation("Prochain repas dans " + difference.Hour + " heure(s) " +
-                    difference.Minute + " minute(s)."),3);
+                Log(new GeneralTextInformation("Prochain repas dans " + difference.Hour + " heure(s) " +
+                     difference.Minute + " minute(s)."), 3);
 
                 if (m_TimerConnectionThread == null)
                     m_TimerConnectionThread = new Timer(TimerConnectionThreadFinished, null,
@@ -1033,7 +944,7 @@ namespace BlueSheep.Interface
             }
             else
             {
-               Log(new GeneralTextInformation("Aucune nourriture disponible, pas de prochaine connexion."),1);
+                Log(new GeneralTextInformation("Aucune nourriture disponible, pas de prochaine connexion."), 1);
             }
         }
 
@@ -1052,7 +963,7 @@ namespace BlueSheep.Interface
 
         //private void SendCommand(string text)
         //{
-           
+
         //    //string[] command = text.Split(':');
         //    //switch (command[0])
         //    //{
@@ -1234,18 +1145,18 @@ namespace BlueSheep.Interface
 
             m_Running = new Running(this);
 
-                    if ((this.SocketManager != null) && (this.SocketManager.Connected()))
-                        return;
+            if ((this.SocketManager != null) && (this.SocketManager.Connected()))
+                return;
 
-                    Log(new ConnectionTextInformation("Connexion."),0);
+            Log(new ConnectionTextInformation("Connexion."), 0);
 
-                    this.SocketManager = new SocketManager(this);
+            this.SocketManager = new SocketManager(this);
 
-                    this.SocketManager.Connect(new ConnectionInformations("213.248.126.40", 5555, "d'identification"));
-                    loginstate = "identification";
-                    if (checkBoxBegin.Checked == true)
-                        GetNextMeal();
-                    this.SocketManager.Send(new BasicPingMessage());
+            this.SocketManager.Connect(new ConnectionInformations("213.248.126.40", 5555, "d'identification"));
+            loginstate = "identification";
+            if (checkBoxBegin.Checked == true)
+                GetNextMeal();
+            this.SocketManager.Send(new BasicPingMessage());
         }
 
         private void TimerConnectionThreadFinished(object stateInfo)

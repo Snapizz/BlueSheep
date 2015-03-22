@@ -7,7 +7,9 @@ namespace BlueSheep.Interface.Il8nBs
 {
     public enum Il8NBsLang
     {
-        Fr = 0,
-        En = 1
+        Fr,
+        En,
+        Es,
+        Pt
     }
 }
