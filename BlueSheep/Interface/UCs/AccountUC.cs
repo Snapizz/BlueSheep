@@ -507,9 +507,8 @@ namespace BlueSheep.Interface
             this.BeginInvoke(new MethodInvoker(LVItems.Items.Clear));
             foreach (Core.Inventory.Item i in Inventory.Items)
             {
-                string[] row1 = { i.GID.ToString(), i.UID.ToString(), i.Name, i.Quantity.ToString(), i.Type.ToString(), i.Price.ToString() };
-                System.Windows.Forms.ListViewItem li = new System.Windows.Forms.ListViewItem(row1);
-                li.ToolTipText = i.Description;
+                string[] row1 = { i.GID.ToString(), i.UID.ToString(), i.Name, i.Quantity.ToString(), i.Type, i.Price.ToString() };
+                var li = new ListViewItem(row1) {ToolTipText = i.Description};
                 AddItem(li, LVItems);
             }
         }
@@ -783,7 +782,7 @@ namespace BlueSheep.Interface
             {
                 Name = "series1",
                 IsVisibleInLegend = false,
-                Color = System.Drawing.Color.DeepSkyBlue,
+                Color = Color.DeepSkyBlue,
                 ChartType = SeriesChartType.Pie
             };
             WinLoseFightPie.Series.Add(series1);

@@ -113,7 +113,7 @@ namespace BlueSheep.Interface.Il8nBs
 
         private void InitEs()
         {
-            _data.Add(Il8NBsLang.En, new Dictionary<Il8NBsEnum, string>
+            _data.Add(Il8NBsLang.Es, new Dictionary<Il8NBsEnum, string>
             {
                 { Il8NBsEnum.AccountUcName, "Nombre" },
                 { Il8NBsEnum.AccountUcUid, "UID" },
@@ -149,7 +149,7 @@ namespace BlueSheep.Interface.Il8nBs
 
         private void InitPt()
         {
-            _data.Add(Il8NBsLang.En, new Dictionary<Il8NBsEnum, string>
+            _data.Add(Il8NBsLang.Pt, new Dictionary<Il8NBsEnum, string>
             {
                 { Il8NBsEnum.AccountUcName, "Nome" },
                 { Il8NBsEnum.AccountUcUid, "UID" },
